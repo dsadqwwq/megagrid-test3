@@ -44,7 +44,7 @@
       <div class="kicker">How it works</div>
       <div class="steps">
         <div class="card step"><div class="num">1</div><h4>Connect wallet</h4><p>MegaETH testnet recommended. Make sure you have test funds.</p></div>
-        <div class="card step"><div class="num">2</div><h4>Click to paint</h4><p>Clicks are buffered for one second. Then we send one on-chain transaction with all changes.</p></div>
+        <div class="card step"><div class="num">2</div><h4>Click to paint</h4><p>Clicks are buffered; then one on-chain transaction with all changes.</p></div>
         <div class="card step"><div class="num">3</div><h4>Watch it update live</h4><p>The app listens to events and updates everyone’s grid in real time.</p></div>
       </div>
     </section>
@@ -57,7 +57,7 @@
     <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <!-- Libraries -->
+  <!-- Libraries (defer so they load before app.js runs) -->
   <script defer src="https://cdn.jsdelivr.net/npm/pixi.js@7/dist/pixi.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/viem@2.9.14/dist/viem.umd.min.js"></script>
   <!-- Config + App -->
