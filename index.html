@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MEGA GRID — Testnet Paint Demo</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div><span>MEGA GRID</span></div>
+      <nav><a href="https://megagrid.fun" target="_blank" rel="noopener">Home</a><a href="#how">How it works</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Testnet Demo</div>
+      <h1 class="title">Paint <span class="grad">tiles</span> in real time.</h1>
+      <p class="sub">Connect your wallet to the MegaETH testnet and color tiles. Changes are batched and broadcast as on-chain events.</p>
+      <div class="cta">
+        <button id="connect" class="btn brand">Connect Wallet</button>
+        <button id="flush" class="btn">Send Batch</button>
+        <span id="status" class="muted"></span>
+      </div>
+
+      <div class="panel" style="margin-top:16px;">
+        <div class="row" style="gap: 12px; align-items:center; flex-wrap:wrap;">
+          <label>Grid: <strong id="gridSizeLabel">128</strong></label>
+          <label>Pixel size: <input id="pxSize" type="number" value="5" min="2" max="20" class="input small"/></label>
+          <label>Paint mode: <select id="mode" class="input small">
+            <option value="random">Random colors</option>
+            <option value="picker">Use color picker</option>
+          </select></label>
+          <input type="color" id="picker" class="input small" value="#66cc88" />
+        </div>
+        <div id="canvasWrap" style="overflow:auto; margin-top:12px;"></div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="kicker">How it works</div>
+      <div class="steps">
+        <div class="card step"><div class="num">1</div><h4>Connect wallet</h4><p>MegaETH testnet recommended. Make sure you have test funds.</p></div>
+        <div class="card step"><div class="num">2</div><h4>Click to paint</h4><p>Clicks are buffered for one second. Then we send one on-chain transaction with all changes.</p></div>
+        <div class="card step"><div class="num">3</div><h4>Watch it update live</h4><p>The app listens to events and updates everyone’s grid in real time.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>© <span id="year"></span> MEGA GRID — Testnet Demo</div>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  </footer>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/pixi.js@7/dist/pixi.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/viem@2.9.14/dist/viem.umd.min.js"></script>
+  <!-- Config + App -->
+  <script defer src="/config.js"></script>
+  <script defer src="/app.js"></script>
+</body>
+</html>
